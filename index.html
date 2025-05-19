@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Carter | Marketing Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Animation for stats */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-count {
+            animation: countUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">Alex Carter</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-500 transition">Home</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-blue-500 transition">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-700 hover:text-blue-500 transition">Portfolio</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-blue-500 transition">Testimonials</a>
+                    <a href="#contact" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-500">Home</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-blue-500">Services</a>
+            <a href="#portfolio" class="block py-2 text-gray-700 hover:text-blue-500">Portfolio</a>
+            <a href="#testimonials" class="block py-2 text-gray-700 hover:text-blue-500">Testimonials</a>
+            <a href="#contact" class="block py-2 text-blue-500">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Transforming Brands Through <span class="gradient-text">Strategic Marketing</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        I help businesses grow their online presence, increase conversions, and build lasting customer relationships through data-driven marketing strategies.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-medium transition">Get Started</a>
+                        <a href="#portfolio" class="border border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-full font-medium transition">View Work</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Marketing Expert" class="rounded-2xl shadow-xl w-full max-w-md">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
+                            <div class="flex items-center">
+                                <div class="bg-green-100 p-3 rounded-full mr-3">
+                                    <i class="fas fa-chart-line text-green-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg">+350%</p>
+                                    <p class="text-sm text-gray-500">ROI for clients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-blue-500 mb-2 animate-count" id="client-count">0</p>
+                    <p class="text-gray-500">Satisfied Clients</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-purple-500 mb-2 animate-count" id="project-count">0</p>
+                    <p class="text-gray-500">Projects Completed</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-green-500 mb-2 animate-count" id="growth-count">0</p>
+                    <p class="text-gray-500">Avg. Growth</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-yellow-500 mb-2 animate-count" id="award-count">0</p>
+                    <p class="text-gray-500">Awards Won</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Marketing Services</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Comprehensive marketing solutions tailored to your business needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition card-hover">
+                    <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bullseye text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Digital Strategy</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive digital marketing strategies that align with your business goals and drive measurable results.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Market research</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Competitive analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> KPI development</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition card-hover">
+                    <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-ad text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Paid Advertising</h3>
+                    <p class="text-gray-600 mb-4">Targeted ad campaigns across platforms like Google, Facebook, and LinkedIn to maximize your ROI.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i> Campaign setup</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i> Audience targeting</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i> Performance tracking</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition card-hover">
+                    <div class="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SEO Optimization</h3>
+                    <p class="text-gray-600 mb-4">Improve your search visibility and organic traffic with technical and content SEO strategies.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Keyword research</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> On-page optimization</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Link building</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition card-hover">
+                    <div class="bg-yellow-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-envelope-open-text text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Email Marketing</h3>
+                    <p class="text-gray-600 mb-4">Convert subscribers into customers with automated email sequences and personalized content.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-500 mr-2"></i> List segmentation</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-500 mr-2"></i> A/B testing</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-500 mr-2"></i> Conversion tracking</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition card-hover">
+                    <div class="bg-red-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-pie text-red-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Content Marketing</h3>
+                    <p class="text-gray-600 mb-4">Engaging content that attracts, educates, and converts your target audience.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Content strategy</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Blog writing</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Video production</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition card-hover">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-indigo-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
+                    <p class="text-gray-600 mb-4">Build brand awareness and engagement through strategic social media presence.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Content calendar</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Community engagement</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Performance analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured <span class="gradient-text">Case Studies</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Real results from real clients across various industries</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Case Study 1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition card-hover">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-shopping-bag text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-3">E-commerce</span>
+                        <h3 class="text-xl font-bold mb-3">Fashion Boutique Growth</h3>
+                        <p class="text-gray-600 mb-4">Increased online sales by 420% in 6 months through targeted Facebook ads and email marketing automation.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">+420% Sales</span>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-medium">3.2x ROI</span>
+                            </div>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-laptop-medical text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-3">Healthcare</span>
+                        <h3 class="text-xl font-bold mb-3">Medical SaaS Lead Gen</h3>
+                        <p class="text-gray-600 mb-4">Generated 1,200+ qualified leads in 4 months through LinkedIn ads and content marketing strategy.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">1,200 Leads</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">65% Open Rate</span>
+                            </div>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition card-hover">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-utensils text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium mb-3">Restaurant</span>
+                        <h3 class="text-xl font-bold mb-3">Local Restaurant Revival</h3>
+                        <p class="text-gray-600 mb-4">Increased foot traffic by 180% through localized SEO and Instagram influencer partnerships.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">180% Traffic</span>
+                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-medium">4.5★ Reviews</span>
+                            </div>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 4 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition card-hover">
+                    <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-3">Education</span>
+                        <h3 class="text-xl font-bold mb-3">Online Course Launch</h3>
+                        <p class="text-gray-600 mb-4">Sold out first cohort in 2 weeks through webinar funnel and strategic Facebook ad sequencing.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-medium">100% Sold</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">$48k Revenue</span>
+                            </div>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 font-medium">
+                    View All Case Studies <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Client <span class="gradient-text">Testimonials</span></h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Don't just take my word for it - hear what my clients have to say</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">CEO, StyleHub</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Alex transformed our online presence completely. Our sales increased by 300% in just 4 months, and we're now ranking on the first page for all our target keywords. The strategic approach made all the difference."</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <p class="text-gray-500 text-sm">Founder, MedTech Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"We were struggling to generate qualified leads until we started working with Alex. The LinkedIn campaign strategy brought us 80+ high-quality leads per month consistently. The ROI has been incredible."</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jessica Williams" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Jessica Williams</h4>
+                            <p class="text-gray-500 text-sm">Marketing Director, FoodieDelight</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The Instagram influencer campaign Alex designed for us was a game-changer. Our engagement rates tripled, and we saw a 150% increase in store visits. The detailed analytics provided were incredibly insightful."</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 flex justify-center">
+                <div class="flex space-x-2">
+                    <button class="w-3 h-3 rounded-full bg-blue-500"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Grow Your Business?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Let's discuss how we can create a customized marketing strategy to achieve your business goals.</p>
+            <a href="#contact" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold shadow-lg transition">Schedule Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Get In <span class="gradient-text">Touch</span></h2>
+                    <p class="text-gray-600 mb-8">Have a project in mind or want to discuss how I can help your business? Fill out the form or contact me directly.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Email</h4>
+                                <p class="text-gray-600">hello@alexcarter.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Phone</h4>
+                                <p class="text-gray-600">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Location</h4>
+                                <p class="text-gray-600">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-800 mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-linkedin-in text-gray-700"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-twitter text-gray-700"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-instagram text-gray-700"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-facebook-f text-gray-700"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg font-medium transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-xl font-bold mb-4">Alex Carter</h3>
+                    <p class="text-gray-400 mb-6">Helping businesses grow through strategic marketing solutions tailored to their unique needs and goals.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Digital Strategy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Paid Advertising</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">SEO Optimization</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Content Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Alex Carter Marketing. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Animate stats counter
+        function animateValue(id, start, end, duration) {
+            let obj = document.getElementById(id);
+            let range = end - start;
+            let minTimer = 50;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            
+            stepTime = Math.max(stepTime, minTimer);
+            
+            let startTime = new Date().getTime();
+            let endTime = startTime + duration;
+            let timer;
+            
+            function run() {
+                let now = new Date().getTime();
+                let remaining = Math.max((endTime - now) / duration, 0);
+                let value = Math.round(end - (remaining * range));
+                obj.innerHTML = value;
+                if (value == end) {
+                    clearInterval(timer);
+                }
+            }
+            
+            timer = setInterval(run, stepTime);
+            run();
+        }
+        
+        // Start counters when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue('client-count', 0, 87, 2000);
+                    animateValue('project-count', 0, 142, 2000);
+                    animateValue('growth-count', 0, 350, 2000);
+                    animateValue('award-count', 0, 12, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.5});
+        
+        observer.observe(document.querySelector('#client-count').parentElement.parentElement);
+    </script>
+</body>
+</html>
